@@ -10,11 +10,8 @@ N M T
 */
 
 fun main() {
-//  var remain: Double = 0.0
   var departTime = 0
-//  val consumptionRate = 0.5
-//  var map = mutableMapOf<String, Int>("arrive" to 0, "depart" to 0)
-  var list = emptyList<Int>()
+  var list: List<Int>
 
   val (battery, countGoingCafe, timeToBack) = readLine()!!.split(" ").map(String::toInt)
   var remain: Int = battery
