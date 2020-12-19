@@ -21,7 +21,7 @@ fun main() {
     val consumeDuration = list[0] - departTime
     val stayCharge = list[1] - list[0]
 
-    remain -= consumeDuration
+    remain -= consumeDuration //カフェに着くまでの消費
 
     if (remain <= 0) {
       return println("No") //途中で０になる場合
@@ -30,13 +30,13 @@ fun main() {
     remain += stayCharge
 
     if (remain > battery) {
-      remain = battery
+      remain = battery //容量以上に残量が増えないように処理
     }
 
-    departTime = list[1]
+    departTime = list[1] //カフェを出る時間の記憶
   }
 
-  remain -= (timeToBack - departTime)
+  remain -= (timeToBack - departTime) //最後のカフェを出てから家までの消費
 
   if (remain <= 0) {
     return println("No")
