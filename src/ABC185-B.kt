@@ -9,34 +9,42 @@ N M T
 
 */
 
-fun main () {
+fun main() {
 //  var remain: Double = 0.0
   var departTime = 0
-  val consumptionRate = 0.5
+//  val consumptionRate = 0.5
 //  var map = mutableMapOf<String, Int>("arrive" to 0, "depart" to 0)
   var list = emptyList<Int>()
 
-  val (a, countGoingCafe, timeToBack) = readLine()!!.split(" ").map(String::toInt)
-  var remain: Double = a.toDouble()
+  val (battery, countGoingCafe, timeToBack) = readLine()!!.split(" ").map(String::toInt)
+  var remain: Int = battery
 
   for (i in 1..countGoingCafe) {
     list = readLine()!!.split(" ").map(String::toInt)
-    val consumeDuration = (list[0] - departTime) * consumptionRate
-    val stayCharge = (list[1] - list[0]) * consumptionRate
-    remain = remain + stayCharge - consumeDuration
+    val consumeDuration = list[0] - departTime
+    val stayCharge = list[1] - list[0]
+
+    remain -= consumeDuration
+
+    if (remain <= 0) {
+      return println("No") //途中で０になる場合
+    }
+
+    remain += stayCharge
+
+    if (remain > battery) {
+      remain = battery
+    }
 
     departTime = list[1]
-    println(remain)
   }
 
-  remain - (timeToBack - departTime) * consumptionRate
-  println(remain)
-  if (remain <= 0.0) {
-    println("No")
-    return
+  remain -= (timeToBack - departTime)
+
+  if (remain <= 0) {
+    return println("No")
   }
-  println("Yes")
-  return
+  return println("Yes")
 }
 
 
