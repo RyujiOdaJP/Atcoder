@@ -10,21 +10,33 @@ N M T
 */
 
 fun main () {
-  val const = 0.5
-  val list = emptyList<Double>().toMutableList()
-  val (battery, times_going_cafe, time_to_back) = readLine()!!.split(" ").map(String::toInt)
-  for (i in 0..times_going_cafe) {
-    val(duration, depart) = readLine()!!.split(" ").map(String::toInt)
-    val charge = (duration - depart) * const
-    val remain = battery - charge
+//  var remain: Double = 0.0
+  var departTime = 0
+  val consumptionRate = 0.5
+//  var map = mutableMapOf<String, Int>("arrive" to 0, "depart" to 0)
+  var list = emptyList<Int>()
 
-    if (c <= 0) {
-      println("No")
-      return
-    }
-    list[i] += c
+  val (a, countGoingCafe, timeToBack) = readLine()!!.split(" ").map(String::toInt)
+  var remain: Double = a.toDouble()
 
+  for (i in 1..countGoingCafe) {
+    list = readLine()!!.split(" ").map(String::toInt)
+    val consumeDuration = (list[0] - departTime) * consumptionRate
+    val stayCharge = (list[1] - list[0]) * consumptionRate
+    remain = remain + stayCharge - consumeDuration
+
+    departTime = list[1]
+    println(remain)
   }
+
+  remain - (timeToBack - departTime) * consumptionRate
+  println(remain)
+  if (remain <= 0.0) {
+    println("No")
+    return
+  }
+  println("Yes")
+  return
 }
 
 
