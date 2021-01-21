@@ -3,7 +3,7 @@ package grammar
 fun main() {
   val i: Int = 200
   val j: Int = i
-  val k: Int? = null
+  val k: Int? = 999
 //  val l: Int = k Nullable は非Nullへの代入不可
 
   println(i == j)//結果：true
@@ -15,4 +15,9 @@ fun main() {
 // safe call；Nullable型がnullでない場合のみ値にアクセス
   val l: String? = k?.toString()
   println(l)
+
+// smart cast with if
+  if (k != null) {
+    println(k.toString()) //safe call しなくてもif文中ではIntとして扱える（?がいらない）
+  }
 }
