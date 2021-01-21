@@ -3,7 +3,7 @@ package grammar
 fun main() {
   val i: Int = 200
   val j: Int = i
-  val k: Int? = 999
+  val k: Int? = null
 //  val l: Int = k Nullable は非Nullへの代入不可
 
   println(i == j)//結果：true
@@ -20,4 +20,10 @@ fun main() {
   if (k != null) {
     println(k.toString()) //safe call しなくてもif文中ではIntとして扱える（?がいらない）
   }
+
+  println(k ?: 0) //nullなら0を返す
+
+  // non null cast
+  var str: String? = "aefe"
+  println(str!!.length) //nullでないことが明らかな場合のみ使う
 }
