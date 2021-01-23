@@ -29,7 +29,15 @@ fun main() {
   println(map["second"]) // 2
 
 //list[1] = "cc" mutableではない
-var mutableList = mutableListOf<Int>(1,2,3,4,5)
+  var mutableList = mutableListOf<Int>(1, 2, 3, 4, 5)
   mutableList[0] = 0
   println(mutableList) //[0, 2, 3, 4, 5]
+
+//  mutableListに対して、Listを不変（immutable）クラスと捉えるのは誤り
+//  Yoshihiro Yamada. Quick Master Kotlin: Lets master Kotlin for Android Development Sokushu (Japanese Edition) (Kindle Locations 763-764). WingsProject. Kindle Edition.
+  val list2 = listOf<List<Int>>(mutableList)
+  println(list2)
+  mutableList[1] = 345
+  println(list2)
+
 }
