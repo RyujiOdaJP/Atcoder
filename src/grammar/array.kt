@@ -27,4 +27,9 @@ fun main() {
   )
   println(map) // {first=1, second=2, third=3}
   println(map["second"]) // 2
+
+//list[1] = "cc" mutableではない
+var mutableList = mutableListOf<Int>(1,2,3,4,5)
+  mutableList[0] = 0
+  println(mutableList) //[0, 2, 3, 4, 5]
 }
