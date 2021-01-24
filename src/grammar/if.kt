@@ -29,4 +29,23 @@ fun main() {
   val string: String
   if (intValue == 100) string = "i is 100" else string = "i is not 100"
   println(string)
+
+  val msg = if (intValue == 10) "x is 10" else "x is not 10"
+  println(msg)
+
+  // when else
+  val point = 3
+  when (point) {
+    3 -> {
+      println("great")
+    }
+    2 -> {
+      println("moderate")
+    }
+    else -> {
+      println("out of range")
+    }
+
+
+  }
 }
