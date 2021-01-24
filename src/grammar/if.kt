@@ -50,7 +50,22 @@ fun main() {
     else -> {
       println("out of range")
     }
+  }
+
+  val obj: Any = "string"
+  when (obj) {
+    is String -> println("obj is string")
+    is Int -> println("obj is int")
+    else -> println("obj is neither int nor string")
+  }
 
 
+  val x = 1000
+  val y = 200
+  // it's able to not get argument
+  when {
+    x <= 10 -> println("x <= 10")
+    x < 10000 && y == 200 -> println("x < 10000 && y == 200")
+    else -> println("?")
   }
 }
