@@ -34,13 +34,18 @@ fun main() {
   println(msg)
 
   // when else
-  val point = 3
+  // 条件句を抜けるためのbreakは不要default句の代わりにelse句を利用する式として利用できる（例は以下2）条件句は{...}で括る
+  // Yoshihiro Yamada. Quick Master Kotlin: Lets master Kotlin for Android Development Sokushu (Japanese Edition) (Kindle Locations 886-888). WingsProject. Kindle Edition.
+  val point = 99
   when (point) {
-    3 -> {
+    3,4 -> { //3 or 4
       println("great")
     }
-    2 -> {
+    in 1..2 -> { // 1~2の間
       println("moderate")
+    }
+    !in 1..4 -> {
+      println("fail")
     }
     else -> {
       println("out of range")
