@@ -29,4 +29,16 @@ fun main() {
   val string: String
   if (intValue == 100) string = "i is 100" else string = "i is not 100"
   println(string)
+
+  val x = 103
+  val msg = if (x == 5) {
+    "変数xは5です。"
+  } else if (x == 10) {
+    "変数xは10です。"
+  } else {
+    "変数xは5でも10でもありません。"
+  }
+  println(msg)
+
+// Yoshihiro Yamada. Quick Master Kotlin: Lets master Kotlin for Android Development Sokushu (Japanese Edition) (Kindle Locations 870-871). WingsProject. Kindle Edition.
 }
