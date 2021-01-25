@@ -30,15 +30,42 @@ fun main() {
   if (intValue == 100) string = "i is 100" else string = "i is not 100"
   println(string)
 
-  val x = 103
-  val msg = if (x == 5) {
-    "変数xは5です。"
-  } else if (x == 10) {
-    "変数xは10です。"
-  } else {
-    "変数xは5でも10でもありません。"
-  }
+  val msg = if (intValue == 10) "x is 10" else "x is not 10"
   println(msg)
 
-// Yoshihiro Yamada. Quick Master Kotlin: Lets master Kotlin for Android Development Sokushu (Japanese Edition) (Kindle Locations 870-871). WingsProject. Kindle Edition.
+  // when else
+  // 条件句を抜けるためのbreakは不要default句の代わりにelse句を利用する式として利用できる（例は以下2）条件句は{...}で括る
+  // Yoshihiro Yamada. Quick Master Kotlin: Lets master Kotlin for Android Development Sokushu (Japanese Edition) (Kindle Locations 886-888). WingsProject. Kindle Edition.
+  val point = 99
+  when (point) {
+    3,4 -> { //3 or 4
+      println("great")
+    }
+    in 1..2 -> { // 1~2の間
+      println("moderate")
+    }
+    !in 1..4 -> {
+      println("fail")
+    }
+    else -> {
+      println("out of range")
+    }
+  }
+
+  val obj: Any = "string"
+  when (obj) {
+    is String -> println("obj is string")
+    is Int -> println("obj is int")
+    else -> println("obj is neither int nor string")
+  }
+
+
+  val x = 1000
+  val y = 200
+  // it's able to not get argument
+  when {
+    x <= 10 -> println("x <= 10")
+    x < 10000 && y == 200 -> println("x < 10000 && y == 200")
+    else -> println("?")
+  }
 }
